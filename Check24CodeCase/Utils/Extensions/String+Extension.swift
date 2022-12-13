@@ -64,17 +64,3 @@ extension Int {
         return Date(timeIntervalSince1970: TimeInterval(self))
     }
 }
-
-extension Date {
-    func byAdding(_ component: Calendar.Component, value: Int, calendar: Calendar = .current) -> Date? {
-        calendar.date(byAdding: component, value: value, to: self)
-    }
-    
-    var asString: String {
-        var date = self
-        let formatter = DateFormatter()
-        
-        formatter.dateFormat = "MM.YYYY"
-        return formatter.string(from: date)
-    }
-}

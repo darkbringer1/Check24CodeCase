@@ -39,6 +39,7 @@
 		1EA934542948A252008385AB /* TableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA934532948A252008385AB /* TableViewFooter.swift */; };
 		1EA934562948A86A008385AB /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA934552948A86A008385AB /* ProductDetailViewModel.swift */; };
 		1EA934582948A8B6008385AB /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EA934572948A8B6008385AB /* ProductDetailViewController.xib */; };
+		1EE352A72948B6FF004C56CD /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE352A62948B6FF004C56CD /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		1EA934532948A252008385AB /* TableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewFooter.swift; sourceTree = "<group>"; };
 		1EA934552948A86A008385AB /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
 		1EA934572948A8B6008385AB /* ProductDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
+		1EE352A62948B6FF004C56CD /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +272,7 @@
 			children = (
 				1EA934312948812B008385AB /* UITableView+Extensions.swift */,
 				1EA9343729488ABC008385AB /* String+Extension.swift */,
+				1EE352A62948B6FF004C56CD /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EE352A72948B6FF004C56CD /* Date+Extension.swift in Sources */,
 				1E78E46B2948AE5E0014630F /* ProductDetailBuilder.swift in Sources */,
 				1EA9341B29486D61008385AB /* ProductListResponseModel.swift in Sources */,
 				1E410C3E294866D10007B4ED /* ViewController.swift in Sources */,
