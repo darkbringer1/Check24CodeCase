@@ -14,13 +14,17 @@ typealias ProductListResponseBlock = (Result<ProductListResponseModel, ErrorResp
 protocol ProductListViewModelProtocol: UITableViewDataSource, UITableViewDelegate {
     func getProductList()
     func subscribeViewState(with completion: @escaping (MainViewState) -> Void)
+    func filterProducts(for index: Int)
+    func navigateToWebview() -> UIViewController?
+    func subscribeWebviewTap(with completion: @escaping () -> Void)
 }
 
 class ProductListViewModel: NSObject, ProductListViewModelProtocol {
     
     private var dataFormatter: ProductListDataFormatter
     private var mainViewState: ((MainViewState) -> Void)?
-
+    private var voidCompletion: (() -> Void)?
+    
     init(dataFormatter: ProductListDataFormatter) {
         self.dataFormatter = dataFormatter
     }
@@ -34,6 +38,14 @@ class ProductListViewModel: NSObject, ProductListViewModelProtocol {
         }
     }
     
+    func navigateToWebview() -> UIViewController? {
+        guard let url = dataFormatter.getFooterValue() else { return nil }
+        return dataFormatter.navigateToWebview(with: url)
+    }
+
+    func subscribeWebviewTap(with completion: @escaping () -> Void) {
+        voidCompletion = completion
+    }
     func subscribeViewState(with completion: @escaping (MainViewState) -> Void) {
         mainViewState = completion
     }
@@ -52,6 +64,21 @@ class ProductListViewModel: NSObject, ProductListViewModelProtocol {
                 debugPrint(error)
         }
     }
+    
+    func filterProducts(for index: Int) {
+        mainViewState?(.loading)
+        switch index {
+            case 0:
+                getProductList()
+            case 1:
+                dataFormatter.filterAvailableProducts()
+            case 2:
+                dataFormatter.filterFavouriteProducts()
+            default:
+                break
+        }
+        mainViewState?(.done)
+    }
 }
 
 extension ProductListViewModel: UITableViewDataSource, UITableViewDelegate {
@@ -64,6 +91,20 @@ extension ProductListViewModel: UITableViewDataSource, UITableViewDelegate {
         let data = dataFormatter.getItem(at: indexPath.row)
         cell.configureCell(with: data)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TableViewHeaderView.reuseIdentifier) as? TableViewHeaderView else { return nil }
+        headerView.setData(title: dataFormatter.getHeaderValues().0, subtitle: dataFormatter.getHeaderValues().1)
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        guard let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TableViewFooterView.reuseIdentifier) as? TableViewFooterView else { return nil }
+        footerView.setData(title: dataFormatter.getFooterValue()?.absoluteString ?? "") { [weak self] in
+            self?.voidCompletion?()
+        }
+        return footerView
     }
 }
 

@@ -24,3 +24,4 @@ public extension UITableViewCell {
         UINib(nibName: Self.reuseIdentifier, bundle: bundle)
     }
 }
+extension UITableViewHeaderFooterView: IdentifierReusable {}

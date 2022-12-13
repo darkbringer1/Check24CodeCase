@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ProductListTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var productImageView: UIImageView!
+    @IBOutlet weak var customImageView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
@@ -20,11 +21,26 @@ class ProductListTableViewCell: UITableViewCell {
         titleLabel.text = productData.name
         dateLabel.text = productData.releaseDate?.asDate.asString
         priceLabel.text = "Price: " + productData.formattedPrice
-        descriptionLabel.text = productData.longDescription
-        productImageView.image = UIImage(systemName: "star.fill")
+        descriptionLabel.text = productData.productDescription
+        addImage(with: productData.imageURL)
         setRatingStars(ratingCount: Int(productData.rating ?? 0))
     }
     
+    private func addImage(with url: String?) {
+        guard let url = url else { return }
+        customImageView.subviews.forEach({$0.removeFromSuperview()})
+        let customImage = CustomImageViewComponentContainer()
+        customImage.translatesAutoresizingMaskIntoConstraints = false
+        customImage.setData(by: CustomImageViewComponentData(imageUrl: url))
+        customImageView.addSubview(customImage)
+        
+        NSLayoutConstraint.activate([
+            customImageView.topAnchor.constraint(equalTo: customImage.topAnchor),
+            customImageView.bottomAnchor.constraint(equalTo: customImage.bottomAnchor),
+            customImageView.leadingAnchor.constraint(equalTo: customImage.leadingAnchor),
+            customImageView.trailingAnchor.constraint(equalTo: customImage.trailingAnchor),
+        ])
+    }
     private func setRatingStars(ratingCount: Int) {
         ratingStartStackView.subviews.forEach({ $0.removeFromSuperview() })
         for _ in 1...ratingCount {

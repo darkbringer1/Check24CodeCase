@@ -12,7 +12,9 @@ final class ProductListBuilder {
         let dataFormatter = ProductListDataFormatter()
         let viewModel = ProductListViewModel(dataFormatter: dataFormatter)
         let vc = ProductListViewController(viewModel: viewModel)
+        let navigationController = UINavigationController(rootViewController: vc)
+
         
-        return vc
+        return navigationController
     }
 }

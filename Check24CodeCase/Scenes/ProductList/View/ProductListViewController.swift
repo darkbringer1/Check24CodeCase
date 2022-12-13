@@ -11,8 +11,8 @@ class ProductListViewController: UIViewController {
     
     var viewModel: ProductListViewModelProtocol
     
-    @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     
     // MARK: Initializers
     init(viewModel: ProductListViewModelProtocol) {
@@ -29,7 +29,8 @@ class ProductListViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .blue
         setupTableView()
-        subscribeViewState()
+        subscribeViewModel()
+        setupSegmentControl()
         viewModel.getProductList()
     }
     
@@ -37,10 +38,21 @@ class ProductListViewController: UIViewController {
         tableView.dataSource = viewModel
         tableView.delegate = viewModel
         tableView.register(UINib(nibName: ProductListTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: ProductListTableViewCell.reuseIdentifier)
+        tableView.register(TableViewHeaderView.self, forHeaderFooterViewReuseIdentifier: TableViewHeaderView.reuseIdentifier)
+        tableView.register(TableViewFooterView.self, forHeaderFooterViewReuseIdentifier: TableViewFooterView.reuseIdentifier)
         tableView.estimatedRowHeight = 200
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
     }
+    
+    func setupSegmentControl() {
+        segmentControl.addTarget(self, action: #selector(segmentChange(_:)), for: .valueChanged)
+    }
+    
+    @objc func segmentChange(_ sender: UISegmentedControl) {
+        viewModel.filterProducts(for: sender.selectedSegmentIndex)
+    }
+    
     @objc func refreshData() {
         viewModel.getProductList()
         tableView.refreshControl?.endRefreshing()
@@ -52,7 +64,7 @@ class ProductListViewController: UIViewController {
         }
     }
     
-    func subscribeViewState() {
+    func subscribeViewModel() {
         viewModel.subscribeViewState { [weak self] state in
             switch state {
                 case .loading:
@@ -60,6 +72,10 @@ class ProductListViewController: UIViewController {
                 case .done:
                     self?.reloadTableViewData()
             }
+        }
+        viewModel.subscribeWebviewTap { [weak self] in
+            guard let vc = self?.viewModel.navigateToWebview() else { return }
+            self?.navigationController?.present(vc, animated: true)
         }
     }
 }
