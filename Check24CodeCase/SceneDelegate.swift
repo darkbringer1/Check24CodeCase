@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         self.window = UIWindow(windowScene: windowScene)
-        let vc = ViewController()
+        let vc = ProductListBuilder.build()
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
     }

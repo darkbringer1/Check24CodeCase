@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductListViewController" customModule="Check24CodeCase" customModuleProvider="target">
+            <connections>
+                <outlet property="segmentControl" destination="mSH-lf-EKy" id="EBC-Cw-OGc"/>
+                <outlet property="tableView" destination="B16-ux-fAO" id="uB1-Cd-NLe"/>
+                <outlet property="view" destination="oIp-iU-RCz" id="a6h-YQ-Unr"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="oIp-iU-RCz">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mSH-lf-EKy">
+                    <rect key="frame" x="0.0" y="59" width="393" height="32"/>
+                    <segments>
+                        <segment title="All"/>
+                        <segment title="Available"/>
+                        <segment title="Favourites"/>
+                    </segments>
+                </segmentedControl>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="B16-ux-fAO">
+                    <rect key="frame" x="0.0" y="90" width="393" height="762"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="cDw-UU-Kof"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="cDw-UU-Kof" firstAttribute="trailing" secondItem="mSH-lf-EKy" secondAttribute="trailing" id="0pi-a7-Kki"/>
+                <constraint firstItem="B16-ux-fAO" firstAttribute="top" secondItem="mSH-lf-EKy" secondAttribute="bottom" id="GeU-1L-UTE"/>
+                <constraint firstItem="mSH-lf-EKy" firstAttribute="leading" secondItem="cDw-UU-Kof" secondAttribute="leading" id="Tgq-wC-kPH"/>
+                <constraint firstItem="mSH-lf-EKy" firstAttribute="top" secondItem="cDw-UU-Kof" secondAttribute="top" id="bI5-lX-7uv"/>
+                <constraint firstItem="cDw-UU-Kof" firstAttribute="trailing" secondItem="B16-ux-fAO" secondAttribute="trailing" id="c4g-d7-DLp"/>
+                <constraint firstAttribute="bottom" secondItem="B16-ux-fAO" secondAttribute="bottom" id="mRj-S0-2cC"/>
+                <constraint firstItem="B16-ux-fAO" firstAttribute="leading" secondItem="cDw-UU-Kof" secondAttribute="leading" id="tSi-WQ-FMU"/>
+            </constraints>
+            <point key="canvasLocation" x="133.58778625954199" y="-4.2253521126760569"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
