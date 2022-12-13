@@ -34,12 +34,16 @@ struct Product: Codable {
     var releaseDate: Int?
     var productDescription, longDescription: String?
     var rating: Double?
-    var price: Price?
+    var price: Price
     
     enum CodingKeys: String, CodingKey {
         case name, type, id, color, imageURL, colorCode, available, releaseDate
         case productDescription = "description"
         case longDescription, rating, price
+    }
+    
+    var formattedPrice: String {
+        String(format: "%.2f \(price.currency.rawValue)", price.value)
     }
 }
 
@@ -59,8 +63,8 @@ enum ColorCode: String, Codable {
 
 // MARK: - Price
 struct Price: Codable {
-    var value: Double?
-    var currency: Currency?
+    var value: Double
+    var currency: Currency
 }
 
 enum Currency: String, Codable {

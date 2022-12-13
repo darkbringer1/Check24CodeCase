@@ -9,7 +9,8 @@ import UIKit
 
 final class ProductListBuilder {
     class func build() -> UIViewController {
-        let viewModel = ProductListViewModel()
+        let dataFormatter = ProductListDataFormatter()
+        let viewModel = ProductListViewModel(dataFormatter: dataFormatter)
         let vc = ProductListViewController(viewModel: viewModel)
         
         return vc
