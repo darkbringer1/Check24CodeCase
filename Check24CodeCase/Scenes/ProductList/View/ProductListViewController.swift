@@ -27,7 +27,7 @@ class ProductListViewController: UIViewController {
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        view.backgroundColor = .white
         setupTableView()
         subscribeViewModel()
         setupSegmentControl()
