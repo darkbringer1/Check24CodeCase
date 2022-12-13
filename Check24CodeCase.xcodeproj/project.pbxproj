@@ -14,6 +14,7 @@
 		1E410C46294866D20007B4ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E410C44294866D20007B4ED /* LaunchScreen.storyboard */; };
 		1E410C52294868980007B4ED /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E410C51294868980007B4ED /* ProductListViewController.swift */; };
 		1E410C5429486A3D0007B4ED /* ProductListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E410C5329486A3D0007B4ED /* ProductListViewController.xib */; };
+		1E78E46B2948AE5E0014630F /* ProductDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E78E46A2948AE5E0014630F /* ProductDetailBuilder.swift */; };
 		1EA9340F29486BF9008385AB /* DefaultNetworkOperationPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 1EA9340E29486BF9008385AB /* DefaultNetworkOperationPackage */; };
 		1EA9341529486CD6008385AB /* ProductListServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9341429486CD6008385AB /* ProductListServiceProvider.swift */; };
 		1EA9341929486D15008385AB /* EmptyRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9341829486D15008385AB /* EmptyRequestModel.swift */; };
@@ -51,6 +52,7 @@
 		1E410C4F2948681E0007B4ED /* DefaultNetworkOperationPackage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DefaultNetworkOperationPackage; sourceTree = "<group>"; };
 		1E410C51294868980007B4ED /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		1E410C5329486A3D0007B4ED /* ProductListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductListViewController.xib; sourceTree = "<group>"; };
+		1E78E46A2948AE5E0014630F /* ProductDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailBuilder.swift; sourceTree = "<group>"; };
 		1EA9341429486CD6008385AB /* ProductListServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListServiceProvider.swift; sourceTree = "<group>"; };
 		1EA9341829486D15008385AB /* EmptyRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRequestModel.swift; sourceTree = "<group>"; };
 		1EA9341A29486D61008385AB /* ProductListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListResponseModel.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				1EA9344D29489EE0008385AB /* ProductDetailViewController.swift */,
+				1E78E46A2948AE5E0014630F /* ProductDetailBuilder.swift */,
 				1EA934572948A8B6008385AB /* ProductDetailViewController.xib */,
 				1EA934552948A86A008385AB /* ProductDetailViewModel.swift */,
 			);
@@ -400,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E78E46B2948AE5E0014630F /* ProductDetailBuilder.swift in Sources */,
 				1EA9341B29486D61008385AB /* ProductListResponseModel.swift in Sources */,
 				1E410C3E294866D10007B4ED /* ViewController.swift in Sources */,
 				1EA93435294882DA008385AB /* ProductListDataFormatter.swift in Sources */,

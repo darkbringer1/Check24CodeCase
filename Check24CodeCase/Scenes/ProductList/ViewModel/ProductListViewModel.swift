@@ -17,6 +17,7 @@ protocol ProductListViewModelProtocol: UITableViewDataSource, UITableViewDelegat
     func filterProducts(for index: Int)
     func navigateToWebview() -> UIViewController?
     func subscribeWebviewTap(with completion: @escaping () -> Void)
+    func subscribeToDetailViewState(with completion: @escaping (Product) -> Void)
 }
 
 class ProductListViewModel: NSObject, ProductListViewModelProtocol {
@@ -24,6 +25,7 @@ class ProductListViewModel: NSObject, ProductListViewModelProtocol {
     private var dataFormatter: ProductListDataFormatter
     private var mainViewState: ((MainViewState) -> Void)?
     private var voidCompletion: (() -> Void)?
+    private var detailViewState: ((Product) -> Void)?
     
     init(dataFormatter: ProductListDataFormatter) {
         self.dataFormatter = dataFormatter
@@ -46,8 +48,13 @@ class ProductListViewModel: NSObject, ProductListViewModelProtocol {
     func subscribeWebviewTap(with completion: @escaping () -> Void) {
         voidCompletion = completion
     }
+    
     func subscribeViewState(with completion: @escaping (MainViewState) -> Void) {
         mainViewState = completion
+    }
+    
+    func subscribeToDetailViewState(with completion: @escaping (Product) -> Void) {
+        detailViewState = completion
     }
     
     private func fireApiCall(with urlRequest: URLRequest, dataListener: @escaping ProductListResponseBlock) {
@@ -105,6 +112,10 @@ extension ProductListViewModel: UITableViewDataSource, UITableViewDelegate {
             self?.voidCompletion?()
         }
         return footerView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        detailViewState?(dataFormatter.getItem(at: indexPath.row))
     }
 }
 

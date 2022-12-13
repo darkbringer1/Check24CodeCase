@@ -77,5 +77,10 @@ class ProductListViewController: UIViewController {
             guard let vc = self?.viewModel.navigateToWebview() else { return }
             self?.navigationController?.present(vc, animated: true)
         }
+        
+        viewModel.subscribeToDetailViewState { [weak self] product in
+            let vc = ProductDetailBuilder.build(with: product)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

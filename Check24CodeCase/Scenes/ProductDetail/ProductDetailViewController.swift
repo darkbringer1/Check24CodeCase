@@ -22,7 +22,6 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var longDescriptionLabel: UILabel!
     @IBOutlet weak var footerLabel: UILabel!
     
-    
     // MARK: Initializers
     init(viewModel: ProductDetailViewModel) {
         self.viewModel = viewModel
@@ -31,6 +30,13 @@ class ProductDetailViewController: UIViewController {
     
     required init?(coder _: NSCoder) {
         return nil
+    }
+    
+    // MARK: Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setData()
     }
     
     private func setData() {
