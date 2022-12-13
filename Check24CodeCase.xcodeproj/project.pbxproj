@@ -40,6 +40,7 @@
 		1EA934562948A86A008385AB /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA934552948A86A008385AB /* ProductDetailViewModel.swift */; };
 		1EA934582948A8B6008385AB /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EA934572948A8B6008385AB /* ProductDetailViewController.xib */; };
 		1EE352A72948B6FF004C56CD /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE352A62948B6FF004C56CD /* Date+Extension.swift */; };
+		1EE352A92948B7A2004C56CD /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE352A82948B7A2004C56CD /* Int+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		1EA934552948A86A008385AB /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
 		1EA934572948A8B6008385AB /* ProductDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
 		1EE352A62948B6FF004C56CD /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		1EE352A82948B7A2004C56CD /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +275,7 @@
 				1EA934312948812B008385AB /* UITableView+Extensions.swift */,
 				1EA9343729488ABC008385AB /* String+Extension.swift */,
 				1EE352A62948B6FF004C56CD /* Date+Extension.swift */,
+				1EE352A82948B7A2004C56CD /* Int+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				1EA9344729489622008385AB /* ImageCacheManager.swift in Sources */,
 				1EA934562948A86A008385AB /* ProductDetailViewModel.swift in Sources */,
 				1EA9343829488ABC008385AB /* String+Extension.swift in Sources */,
+				1EE352A92948B7A2004C56CD /* Int+Extension.swift in Sources */,
 				1E410C3C294866D10007B4ED /* SceneDelegate.swift in Sources */,
 				1EA9344E29489EE0008385AB /* ProductDetailViewController.swift in Sources */,
 				1EA9344129489602008385AB /* CustomImageViewComponentData.swift in Sources */,

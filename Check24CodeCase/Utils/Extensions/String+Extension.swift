@@ -58,9 +58,3 @@ extension String {
         return date
     }
 }
-
-extension Int {
-    var asDate: Date {
-        return Date(timeIntervalSince1970: TimeInterval(self))
-    }
-}
